@@ -97,7 +97,7 @@ fun HomeScreen(navController: NavHostController) {
         )
 
         Spacer(modifier = Modifier.height(10.dp))
-        MovieCardList(movies, navController)
+//        MovieCardList(movies, navController)
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = "Promo",

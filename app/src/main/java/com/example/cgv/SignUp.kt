@@ -1,7 +1,6 @@
 package com.example.cgv
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -29,12 +28,17 @@ import androidx.navigation.NavHostController
 
 
 @Composable
-fun LoginScreen (navController: NavHostController) {
+fun SignUp (navController: NavHostController) {
 
     var email by remember {
         mutableStateOf("")
     }
-
+    var nama by remember {
+        mutableStateOf("")
+    }
+    var telp by remember {
+        mutableStateOf("")
+    }
     var password by remember {
         mutableStateOf("")
     }
@@ -46,17 +50,29 @@ fun LoginScreen (navController: NavHostController) {
     ) {
         Image(painter = painterResource(id = R.drawable.logoalfamind), contentDescription = "Login Image",
             modifier = Modifier.size(200.dp))
-            Text(text = "Sign In", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+        Text(text = "Sign Up", fontSize = 28.sp, fontWeight = FontWeight.Bold)
 
 //        Spacer(modifier = Modifier.height(4.dp))
 //
 //        Text(text = "Login to your account")
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(value = nama , onValueChange = {
+            nama = it }, label = {
+            Text(text = "Nama")
+        })
 
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(value = email , onValueChange = {
             email = it }, label = {
             Text(text = "Email address")
+        })
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(value = telp , onValueChange = {
+            telp = it }, label = {
+            Text(text = "No. Telp")
         })
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -77,12 +93,8 @@ fun LoginScreen (navController: NavHostController) {
 //        }
         Button(onClick = { navController.navigate("home")},
             colors = ButtonDefaults.buttonColors(containerColor  = Color.Red)){
-            Text(text = "Sign In")
+            Text(text = "Sign Up")
         }
-        Spacer(modifier = Modifier.height(32.dp))
-
-        Text(text = "Forgot Password?", modifier = Modifier.clickable {  })
-
         Spacer(modifier = Modifier.height(32.dp))
 
     }
@@ -93,5 +105,5 @@ fun LoginScreen (navController: NavHostController) {
 //@Composable
 //
 //fun LoginScreenPreview(){
-//    LoginScreen()
+//    SignUp()
 //}
